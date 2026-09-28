@@ -88,10 +88,6 @@ Marking Scheme:
 <video src="https://github.com/user-attachments/assets/3a3b01f4-0d80-4e12-8df3-b3daf3770cde" muted autoplay loop controls width="100%">
 </video>
 
-
-
-
-
 ## Task 1A: Move the Piece
 
 ```c
@@ -137,6 +133,11 @@ Marking Scheme:
 * The piece moves left and right only when the destination is valid @1
 * Each new press moves the piece once @1
 
+### Demo video
+
+<video src="https://github.com/user-attachments/assets/6e3d3663-7d86-4d1e-bf0a-bd37044a9f7d" muted autoplay loop controls width="100%">
+</video>
+
 ## Task 1B: Rotate the Piece
 
 ```c
@@ -167,6 +168,12 @@ Marking Scheme:
 
 * The block can rotate clockwise and anticlockwise when the proposed orientation is valid @1
 * Each press rotates only once, opposite presses cancel, and blocked rotations do not pass through walls or landed blocks @1
+
+### Demo video
+
+<video src="https://github.com/user-attachments/assets/ae0460d2-b0d6-4fa1-9a8f-54d8f6b53211" muted autoplay loop controls width="100%">
+</video>
+
 
 ## Task 2: Drop the Piece
 
@@ -219,6 +226,11 @@ Marking Scheme:
 * A long press drops to the lowest valid position and locks once @1
 * Holding or releasing after a long press does not affect the next piece @1
 
+### Demo video
+
+<video src="https://github.com/user-attachments/assets/2ce04627-8b56-41a7-a35f-3c8fd97ac7a5" muted autoplay loop controls width="100%">
+</video>
+
 ## Task 3: Game FSM and Button4
 
 ```c
@@ -264,4 +276,10 @@ Marking Scheme:
 * Long press replaces the active piece once @1
 * Replacement is available again only after the piece locks @1
 * Long press restarts the game after Game Over @1
+
+### Demo video
+
+<video src="https://github.com/user-attachments/assets/093a5148-9529-4029-84bb-c7d138f3ab36" muted autoplay loop controls width="100%">
+</video>
+
 
