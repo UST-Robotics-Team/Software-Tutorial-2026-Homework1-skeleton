@@ -85,8 +85,12 @@ Marking Scheme:
 
 ### Demo video
 
-<video src="https://github.com/user-attachments/assets/85f4d1e7-dbe8-4689-9a30-b2607f44a547" muted loop width="100%">
+<video src="https://github.com/user-attachments/assets/3a3b01f4-0d80-4e12-8df3-b3daf3770cde" muted autoplay loop controls width="100%">
 </video>
+
+
+
+
 
 ## Task 1A: Move the Piece
 
