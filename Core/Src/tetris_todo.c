@@ -56,7 +56,7 @@ void Tetris_DrawCell(uint32_t px, uint32_t py, uint16_t color)
 }
 
 /**
- * @brief TASK 1A: read Button6/7 and move once per new press.
+ * @brief TASK 1A: read your chosen left/right buttons and move once per new press.
  * @param[in,out] game Active piece to update if its destination is valid.
  * @note GPIO is active-low. Remember previous readings across calls with static
  * variables. Opposite press events cancel. Use Tetris_CanPlace to reject walls
@@ -73,9 +73,9 @@ void Tetris_Move(TetrisGame *game)
 }
 
 /**
- * @brief TASK 1B: read Button2/3 and rotate once per new press.
+ * @brief TASK 1B: read your chosen rotate buttons and rotate once per new press.
  * @param[in,out] game Active piece to rotate only if the new orientation fits.
- * @note Button2 is anticlockwise; Button3 is clockwise. Orientations are 0..3.
+ * @note Assign one button to clockwise and one to anticlockwise. Orientations are 0..3.
  * Opposite press events cancel. Wall kicks are not required. Keep the previous
  * levels across calls and do not reset them while a button is still held.
  */
@@ -91,7 +91,7 @@ void Tetris_Rotate(TetrisGame *game)
 }
 
 /**
- * @brief TASK 2: read Button5 locally and implement short/long drops.
+ * @brief TASK 2: read your drop button locally and implement short/long drops.
  * @param[in,out] game Active piece to move; FinishPiece handles board bookkeeping.
  * @note Release before TETRIS_LONG_PRESS_MS to step once; hold until the interval
  * to drop to the lowest position and lock once. Read HAL_GetTick and keep your
@@ -101,7 +101,7 @@ void Tetris_Rotate(TetrisGame *game)
  */
 void Tetris_Drop(TetrisGame *game)
 {
-    /** TODO: read Button5 and update its previous level before the guard. */
+    /** TODO: read your drop button and update its previous level before the guard. */
     if (!game->has_active) {
         return;
     }
@@ -109,15 +109,15 @@ void Tetris_Drop(TetrisGame *game)
 }
 
 /**
- * @brief TASK 3: handle Button4 and the complete game-state FSM.
+ * @brief TASK 3: handle the pause/replace/restart button and the complete game-state FSM.
  * @param[in,out] game State, active piece and skip allowance to update.
  * @param[in] now Current software tick in milliseconds.
- * @note Short Button4 pauses/resumes. TETRIS_LONG_PRESS_MS triggers one skip
+ * @note A short press pauses/resumes. TETRIS_LONG_PRESS_MS triggers one skip
  * during play or resets Game Over. A replacement must lock before another skip.
  */
 void Tetris_UpdateGame(TetrisGame *game, uint32_t now)
 {
-    /** TODO: add the Button4 pause, replace and restart behaviour. */ 
+    /** TODO: add the pause, replace and restart behaviour. */
     
     switch (game->state) {
     case TETRIS_SPAWN:

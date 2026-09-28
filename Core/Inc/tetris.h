@@ -21,7 +21,7 @@ typedef enum {
     TETRIS_SPAWN,     // Generate the next active piece
     TETRIS_FALLING,   // Accept controls and apply gravity
     TETRIS_PAUSED,    // Keep the board visible but stop gameplay
-    TETRIS_GAME_OVER  // Wait for Button4 to reset the game
+    TETRIS_GAME_OVER  // Wait for the restart button to reset the game
 } TetrisState;
 
 
@@ -39,7 +39,7 @@ typedef struct {
     // The falling piece stays separate from board until it locks.
     TetrisPiece active;
     bool has_active;       // Whether active currently contains a falling piece
-    bool skip_available;   // Whether Button4 may replace the current piece
+    bool skip_available;   // Whether the current piece may be replaced (once per lock)
     TetrisState state;     // Current state of the game FSM
     uint32_t last_fall_ms; // Reference tick used to schedule the next gravity step
     uint32_t lines;        // Total number of cleared rows
@@ -112,10 +112,10 @@ void Tetris_FinishPiece(TetrisGame *game);
 void Tetris_Gravity(TetrisGame *game, uint32_t now);
 
 /**
- * @brief Task 3: handle Button4 and the SPAWN/FALLING/PAUSED/GAME_OVER FSM.
+ * @brief Task 3: handle the pause/replace/restart button and the SPAWN/FALLING/PAUSED/GAME_OVER FSM.
  * @param[in,out] game State, active piece and timers to update.
  * @param[in] now Current tick in milliseconds.
- * @note Short Button4 toggles pause; TETRIS_LONG_PRESS_MS triggers skip/reset.
+ * @note A short press toggles pause; TETRIS_LONG_PRESS_MS triggers skip/reset.
  */
 void Tetris_UpdateGame(TetrisGame *game, uint32_t now);
 
@@ -143,20 +143,20 @@ void Tetris_DrawHUD(const TetrisGame *game);
 void Tetris_DrawCell(uint32_t px, uint32_t py, uint16_t color);
 
 /**
- * @brief Task 1A: read Button6/7, detect presses and try moving left/right.
+ * @brief Task 1A: read your chosen left/right buttons, detect presses and try moving.
  * @param[in,out] game Active piece to update only if the destination is valid.
  * @note Keep previous readings in local static variables across calls.
  */
 void Tetris_Move(TetrisGame *game);
 
 /**
- * @brief Task 1B: read Button2/3, detect presses and try rotating the piece.
+ * @brief Task 1B: read your chosen rotate buttons, detect presses and try rotating the piece.
  * @param[in,out] game Active piece to rotate only when all four cells fit.
  */
 void Tetris_Rotate(TetrisGame *game);
 
 /**
- * @brief Task 2: read Button5 and handle short/long drops and gesture lifetime.
+ * @brief Task 2: read your chosen drop button and handle short/long drops and gesture lifetime.
  * @param[in,out] game Piece to drop; update the gravity timer after a short step.
  * @note Read HAL_GetTick locally and keep previous input/timing in static variables.
  */

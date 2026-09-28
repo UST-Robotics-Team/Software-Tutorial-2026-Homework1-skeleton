@@ -10,16 +10,16 @@ Complete a Tetris game on the RDC Controller. The starter already handles piece 
 
 ### Controller buttons
 
-The game uses six buttons. Button1 and Button8 are not used.
+The game uses six buttons (Button2 to Button7). Button1 and Button8 are not used.
 
-| Button | Pin | Game behaviour |
-| --- | --- | --- |
-| Button2 | PA8 | Rotate the active piece anticlockwise once for each new press. |
-| Button3 | PB15 | Rotate the active piece clockwise once for each new press. |
-| Button4 | PB14 | Short press: pause/resume. Long press: replace once, or restart after Game Over. Replacement becomes available again after the new piece locks. |
-| Button5 | PB5 | Short press: move down one cell. Long press: drop to the bottom and lock. |
-| Button6 | PB4 | Move the active piece one cell to the left for each new press. |
-| Button7 | PB3 | Move the active piece one cell to the right for each new press. |
+You must implement all six controls below. You are free to assign any control to any button — there is no fixed mapping. (The demo videos show one example layout; your layout may differ.)
+
+1. Move the active piece one cell left.
+2. Move the active piece one cell right.
+3. Rotate the active piece clockwise.
+4. Rotate the active piece anticlockwise.
+5. Soft drop: move down one cell (short press) / hard drop: drop to the bottom and lock (long press).
+6. Pause/resume (short press), replace the active piece (long press), restart after Game Over (long press).
 
 ### Coordinate system
 
@@ -102,7 +102,7 @@ void Tetris_Move(TetrisGame *game)
 }
 ```
 
-1. Read Button6 and Button7, and move only once for each new press.
+1. Read the two buttons you assigned to moving left and right, and move only once for each new press.
 
    <details>
    <summary>Hints</summary>
@@ -155,7 +155,7 @@ void Tetris_Rotate(TetrisGame *game)
 
 You are required to do the following:
 
-1. Rotate once for each new Button2 or Button3 press. Opposite presses cancel each other.
+1. Rotate once for each new press of the two buttons you assigned to rotation. Opposite presses cancel each other.
 2. Accept the rotation only when the piece still fits. Wall kicks are not required.
 
 You might find this useful:
@@ -180,7 +180,7 @@ Marking Scheme:
 ```c
 void Tetris_Drop(TetrisGame *game)
 {
-    /** TODO: read Button5 and update its previous level before the guard. */
+    /** TODO: read your drop button and update its previous level before the guard. */
     if (!game->has_active) {
         return;
     }
@@ -190,7 +190,7 @@ void Tetris_Drop(TetrisGame *game)
 
 You are required to do the following:
 
-1. Distinguish a short Button5 press from a long press.
+1. Distinguish a short press from a long press on the button you assigned to dropping.
 2. A short press moves the active piece down by one valid cell, or locks it if it cannot move down.
 
    <details>
@@ -211,7 +211,7 @@ You are required to do the following:
 
    </details>
 
-4. Releasing after a long press must not cause a short drop, and continuing to hold Button5 must not affect the next piece.
+4. Releasing after a long press must not cause a short drop, and continuing to hold the drop button must not affect the next piece.
 
 You might find these useful:
 
@@ -231,12 +231,12 @@ Marking Scheme:
 <video src="https://github.com/user-attachments/assets/2ce04627-8b56-41a7-a35f-3c8fd97ac7a5" muted autoplay loop controls width="100%">
 </video>
 
-## Task 3: Game FSM and Button4
+## Task 3: Game FSM and Pause/Replace/Restart
 
 ```c
 void Tetris_UpdateGame(TetrisGame *game, uint32_t now)
 {
-    /** TODO: add the Button4 pause, replace and restart behaviour. */
+    /** TODO: add the pause, replace and restart behaviour. */
 
     switch (game->state) {
     case TETRIS_SPAWN:
@@ -259,9 +259,9 @@ void Tetris_UpdateGame(TetrisGame *game, uint32_t now)
 
 You are required to do the following:
 
-1. Short Button4 pauses or resumes the game. Nothing moves while paused.
-2. Long Button4 replaces the active piece once. Another replacement is allowed after the new piece locks.
-3. Long Button4 restarts the game after Game Over.
+1. A short press on the button you assigned to pause pauses or resumes the game. Nothing moves while paused.
+2. A long press on that button replaces the active piece once. Another replacement is allowed after the new piece locks.
+3. A long press on that button restarts the game after Game Over.
 
 You might find these useful:
 
