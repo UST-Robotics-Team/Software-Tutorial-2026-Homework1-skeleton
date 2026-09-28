@@ -53,7 +53,8 @@ Please download the skeleton code for Tutorial 1 Homework here:
 
 [Link](https://github.com/UST-Robotics-Team/Software-Tutorial-2026-Homework1-skeleton)
 
-Import the project into ur vscode using the same way as in the tutorial!
+Set up the project the same way as you were taught in Tutorial 1! [Review the slides again](https://canva.link/oon1xmuchxtwbk8) for the steps if you can't remember.
+
 
 ## Task 0: Display Housekeeping
 
