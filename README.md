@@ -167,7 +167,7 @@ bool Tetris_CanPlace(const TetrisGame *game, const TetrisPiece *piece);
 Marking Scheme:
 
 * The block can rotate clockwise and anticlockwise when the proposed orientation is valid @1
-* Each press rotates only once, opposite presses cancel, and blocked rotations do not pass through walls or landed blocks @1
+* Each press rotates only once, opposite presses cancel, and blocked rotations do not pass through walls or landed blocks or implement wall kick correctly according to [here](https://harddrop.com/wiki/Wall_kick)@1
 
 ### Demo video
 
