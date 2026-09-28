@@ -8,10 +8,6 @@
 
 Complete a Tetris game on the RDC Controller. The starter already handles piece generation, gravity, collision checking, locking, row clearing, scoring, and rendering. Even without button controls, pieces will appear, fall, and stack automatically. Each shuffled group of seven pieces contains every piece type exactly once.
 
-### Demo video
-
-> **TODO:** Insert the completed-game demonstration video here.
-
 ### Controller buttons
 
 The game uses six buttons. Button1 and Button8 are not used.
@@ -86,6 +82,11 @@ Marking Scheme:
 
 * The title, score, Paused, and Game Over status are displayed correctly and remain within text row zero @1
 * Each cell has a 7 × 7 pixel background and a centred 5 × 5 pixel coloured block, with no trail after movement @1
+
+### Demo video
+
+<video src="https://github.com/user-attachments/assets/85f4d1e7-dbe8-4689-9a30-b2607f44a547" muted loop controls width="100%">
+</video>
 
 ## Task 1A: Move the Piece
 
