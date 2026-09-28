@@ -1,0 +1,12 @@
+build
+mx.scratch
+.clangd
+.DS_Store
+/.settings
+/.vscode
+/cmake
+*.s
+.mxproject
+# CMakePresets.json
+/Drivers
+# STM32F103XX_FLASH.ld
